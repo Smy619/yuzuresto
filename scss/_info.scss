@@ -1,0 +1,95 @@
+@use "variables" as vars;
+
+.info-pratique {
+  background-color: vars.$color-bg-secondary;
+}
+
+/* Container wrapper */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px; /* tighter padding on mobile */
+}
+
+/* Section title */
+.section-title {
+  font-size: vars.$font-md; /* smaller on mobile */
+  font-family: vars.$font-title;
+  color: vars.$color-gold;
+  margin: 16px 0 24px;
+  padding: 24px 0 16px;
+  text-align: center; /* centered for mobile */
+}
+
+/* Map wrapper */
+.map {
+  width: 100vw; /* full width */
+  margin-left: calc(-50vw + 50%); /* edge-to-edge */
+
+  iframe {
+    width: 100%;
+    height: 260px; /* reduced height on mobile */
+    border: 0;
+    display: block;
+  }
+}
+
+/* Info grid: single column by default */
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* mobile = one column */
+  gap: 20px;
+  padding: 24px 0 40px;
+}
+
+/* List of information items */
+.info-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 20px;
+}
+
+/* Info item: icon + text */
+.info-item {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  column-gap: 12px;
+  align-items: start;
+}
+
+.info-ico {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: vars.$color-gold;
+  color: #111;
+  display: grid;
+  place-items: center;
+  font-size: 20px;
+  box-shadow: inset 0 -2px rgba(0, 0, 0, 0.08);
+}
+
+/* Info item text */
+.info-title {
+  margin: 0 0 4px;
+  color: vars.$color-white;
+  font-weight: 700;
+  font-size: vars.$font-sm;
+  line-height: 1.2;
+  font-family: vars.$font-accent;
+}
+
+.info-text {
+  margin: 0;
+  color: vars.$color-text;
+  font-size: 14px;
+  line-height: 1.6;
+  font-family: vars.$font-body;
+
+  em {
+    color: vars.$color-gold;
+    font-style: italic;
+  }
+}

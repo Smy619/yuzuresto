@@ -1,0 +1,96 @@
+@use "variables" as vars;
+.avis {
+  padding: 40px 0 56px;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 16px; /* tighter padding on mobile */
+  }
+}
+
+.avis-title {
+  font-family: vars.$font-title;
+  font-size: vars.$font-md; /* smaller on mobile */
+  margin: 0 0 8px;
+  color: vars.$color-gold;
+  padding-bottom: 20px;
+  text-align: center; /* centered for mobile */
+}
+
+/* ===== Slider ===== */
+.slider-viewport {
+  overflow: hidden;
+  width: 100%;
+}
+
+.slider-track {
+  display: flex;
+  transition: transform 0.6s ease;
+  will-change: transform;
+  gap: 16px; /* smaller gap for mobile */
+
+  .card {
+    min-width: 100%; /* one card per view on mobile */
+    box-sizing: border-box;
+    padding: 0 8px;
+  }
+}
+
+/* ===== Card styles ===== */
+.card {
+  background: rgba(29, 25, 25, 0.942);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 24px;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.35);
+  max-width: 100%; /* no max constraint on mobile */
+
+  .quote-left,
+  .quote-right {
+    color: vars.$color-gold;
+    font-size: 18px;
+  }
+
+  .quote-left {
+    padding-right: 10px;
+  }
+  .quote-right {
+    padding-left: 10px;
+    position: absolute;
+  }
+
+  .text {
+    color: vars.$color-text;
+    font-size: 14px;
+    font-style: italic;
+    margin: 0;
+  }
+}
+
+.author .name {
+  font-weight: 700;
+  color: vars.$color-white;
+  padding-top: 12px;
+  text-align: center;
+}
+
+/* ===== Slider dots ===== */
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 12px;
+
+  button {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+
+    &.active {
+      background: vars.$color-gold-light;
+    }
+  }
+}

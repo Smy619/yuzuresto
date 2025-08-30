@@ -1,0 +1,87 @@
+@use "variables" as vars;
+
+.about {
+  position: relative;
+  /* Mobile: compact vertical layout */
+  padding: 48px 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  /* Background image (blurred) */
+  &::before {
+    position: absolute;
+    content: "";
+    background: url("../images/restaurant-about.jpg") center/cover no-repeat;
+    filter: blur(10px);
+    transform: scale(1.06);
+    inset: 0;
+    z-index: 0;
+  }
+
+  /* Dark overlay for readability */
+  &_overlay {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.9);
+    inset: 0;
+    z-index: 1;
+  }
+
+  /* Keep content above overlays */
+  > * {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+.about-container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 16px;
+}
+
+.about_title {
+  font-family: vars.$font-accent;
+  font-size: 28px; /* Mobile base */
+  line-height: 1.2;
+  color: vars.$color-white;
+}
+
+.gold {
+  color: vars.$color-gold;
+}
+
+.about_lead {
+  font-size: 16px;
+  color: rgba(201, 189, 189, 0.66);
+  text-align: left;
+}
+
+.about_points li {
+  list-style: none;
+}
+
+.about_image {
+  display: flex;
+  margin-top: 8px; /* Separate from text on mobile */
+  img {
+    max-width: 100%; /* Responsive image */
+    height: auto;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3),
+      0 0 0 10px rgba(211, 201, 153, 0.6);
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1),
+      box-shadow 0.6s ease, filter 0.6s ease;
+    will-change: transform, box-shadow, filter;
+
+    &:hover {
+      transform: scale(1.05); /* Subtle zoom effect */
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
+      filter: brightness(1.05);
+    }
+  }
+}

@@ -1,0 +1,180 @@
+@use "variables" as vars;
+
+/* ====== Hero Section (mobile-first) ====== */
+
+.hero {
+  /* Mobile: avoid strict 100vh because of mobile browser UI bars */
+  min-height: 70vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 64px 16px; /* mobile padding */
+
+  &::before {
+    /* Background image layer */
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("../images/restaurant-home.jpg") center/cover no-repeat;
+    filter: brightness(0.9);
+    transform: scale(1.06);
+    animation: heroBreath 18s ease-in-out infinite alternate;
+    z-index: 0;
+  }
+
+  &::after {
+    /* Dark overlay for contrast */
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    pointer-events: none;
+    z-index: 1;
+  }
+}
+
+.hero-content {
+  /* Mobile: stacked vertically */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items: center; /* left-aligned text by default */
+  gap:20px;
+  max-width: 1200px;
+  margin-top:80px;
+  padding:30px 20px;
+  color: vars.$color-white;
+  z-index: 2;
+}
+
+.hero-name {
+  color: vars.$color-gold;
+  font-size:55px;
+  line-height: 1.2;
+  text-align: center;
+  font-family:vars.$font-accent;
+   text-shadow: 0 1px 2px rgba(0,0,0,.35);
+}
+
+.just-mobile{
+  display:flex;
+  flex-direction: column;
+  gap:10px;
+  font-style: italic;
+}
+.hero-text p {
+  font-style: italic;
+  text-align: center;
+  white-space: normal;
+}
+
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  max-width: 36rem; /* readable line length on mobile */
+  margin: 0 auto;
+  padding:10px 20px;
+  text-shadow: 0 1px 2px rgba(0,0,0,.35);
+}
+.hero-text p{
+  font-size: 15px;
+  white-space: normal; 
+}
+/* ===== Hero video button ===== */
+.hero-video {
+  width: 100%;
+  display: flex;
+  justify-content: center; /* sits under text on mobile */
+  margin-top: 8px;
+}
+
+.video-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background-color: rgba(201, 150, 22, 0.9);
+  color: vars.$color-white;
+  text-decoration: none;
+  font-weight: 600;
+  position: relative;
+  cursor: pointer;
+  z-index: 1;
+  overflow: visible;
+  animation: btn-glow 2.4s ease-in-out infinite;
+  will-change: box-shadow, transform;
+
+  i {
+    font-size: 26px;
+    color: vars.$color-white;
+    z-index: 2;
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    border: 2px solid rgba(vars.$color-gold, 0.5);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    transform-origin: center;
+  }
+
+  &::before {
+    box-shadow: 0 0 25px rgba(255, 223, 128, 0.6),
+      0 0 50px rgba(212, 175, 55, 0.4), 0 0 80px rgba(255, 223, 128, 0.2);
+    animation: outer-glow 4s ease-in-out infinite;
+  }
+}
+
+/* ===== Animations ===== */
+@keyframes heroBreath {
+  0% {
+    transform: scale(1.02);
+    filter: brightness(0.9);
+  }
+  100% {
+    transform: scale(1.08);
+    filter: brightness(0.95);
+  }
+}
+
+@keyframes inner-glow {
+  0% {
+    box-shadow: 0 0 0 rgba(212, 175, 55, 0);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.75),
+      0 0 30px rgba(255, 223, 128, 0.4);
+    transform: scale(1.06);
+  }
+  100% {
+    box-shadow: 0 0 0 rgba(212, 175, 55, 0);
+    transform: scale(1);
+  }
+}
+
+@keyframes outer-glow {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.3);
+    opacity: 0.9;
+  }
+}

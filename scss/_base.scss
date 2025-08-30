@@ -1,0 +1,18 @@
+@use "variables" as vars;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===== Global styles ===== */
+html,
+body {
+  height: 100%;
+  font-family: vars.$font-body;
+  color: vars.$color-white;
+  background-color: vars.$color-dark;
+  overflow-x: hidden;
+}
+
