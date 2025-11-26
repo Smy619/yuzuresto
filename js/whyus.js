@@ -1,14 +1,17 @@
+
 export function whyus() {
-  const cards = document.querySelectorAll(".whyus-card");
+  const container = document.querySelector(".whyus-grid");
 
-  if (!cards.length) return;
+  if (!container) return;
 
-  cards.forEach(card => {
-    card.addEventListener("click", () => {
- 
-      cards.forEach(c => c.classList.remove("active"));
+  container.addEventListener("click", (e) => {
+    const card = e.target.closest(".whyus-card");
+    if (!card) return;
 
-      card.classList.add("active");
-    });
+   
+    document.querySelectorAll(".whyus-card").forEach(c => c.classList.remove("active"));
+
+  
+    card.classList.add("active");
   });
 }
