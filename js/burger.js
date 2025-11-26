@@ -4,5 +4,6 @@ export function burger(){
 
   burger.addEventListener("click",() => {
      nav.classList.toggle("open");
+     burger.classList.toggle("active");
   });
 };

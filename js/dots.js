@@ -4,6 +4,8 @@ export function dots() {
   const slides = Array.from(track.children);
   const dotsBox = document.querySelector("#avis .dots");
 
+  if (!track || !dotsContainer) return;
+
   function perView() {
     const vw = viewport.offsetWidth;
     const w0 = slides[0].offsetWidth;

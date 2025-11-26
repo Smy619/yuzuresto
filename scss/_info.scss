@@ -8,41 +8,68 @@
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 16px; /* tighter padding on mobile */
+  padding: 0 16px;
 }
 
 /* Section title */
-.section-title {
-  font-size: vars.$font-md; /* smaller on mobile */
-  font-family: vars.$font-title;
-  color: vars.$color-gold;
-  margin: 16px 0 24px;
-  padding: 24px 0 16px;
-  text-align: center; /* centered for mobile */
+
+.section-header {
+  margin-bottom: 40px;
+  padding-top: 20px;
+
+  .section-label {
+    font-family: vars.$font-accent;
+    font-size: 14px;
+    letter-spacing: 2px;
+    color: vars.$color-text;
+    display: inline-block;
+    margin-bottom: 4px;
+    position: relative;
+
+    &::after {
+      content: "";
+      display: inline-block;
+      width: 60px;
+      height: 1px;
+      background: vars.$color-gold;
+      margin-left: 12px;
+      vertical-align: middle;
+    }
+  }
+
+  .section-title {
+    font-family: vars.$font-title;
+    font-size: 38px;
+    font-weight: 700;
+    color: vars.$color-gold;
+    padding:1px;
+  }
 }
 
 /* Map wrapper */
 .map {
-  width: 100vw; /* full width */
-  margin-left: calc(-50vw + 50%); /* edge-to-edge */
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
 
   iframe {
     width: 100%;
-    height: 260px; /* reduced height on mobile */
+    height: 260px;
     border: 0;
     display: block;
   }
 }
 
-/* Info grid: single column by default */
+/* ============================================================
+   MOBILE — 1 column
+============================================================ */
 .info-grid {
   display: grid;
-  grid-template-columns: 1fr; /* mobile = one column */
-  gap: 20px;
+  grid-template-columns: 1fr;
+  gap: 32px;
   padding: 24px 0 40px;
 }
 
-/* List of information items */
+/* Info list (保持一列) */
 .info-list {
   list-style: none;
   margin: 0;
@@ -51,7 +78,7 @@
   gap: 20px;
 }
 
-/* Info item: icon + text */
+/* Icon + text */
 .info-item {
   display: grid;
   grid-template-columns: 48px 1fr;
@@ -71,7 +98,6 @@
   box-shadow: inset 0 -2px rgba(0, 0, 0, 0.08);
 }
 
-/* Info item text */
 .info-title {
   margin: 0 0 4px;
   color: vars.$color-white;
@@ -93,3 +119,37 @@
     font-style: italic;
   }
 }
+
+/* ============================================================
+   TABLET ≥ 768px — 2 columns
+============================================================ */
+@media (min-width: 768px) {
+  .info-grid {
+    grid-template-columns: 1fr 1fr; 
+    gap: 40px;
+  }
+}
+
+/* ============================================================
+   DESKTOP ≥ 1024px 
+============================================================ */
+@media (min-width: 1024px) {
+  .info-grid {
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 48px;
+    align-items: start;
+  }
+
+  .info-list {
+    gap: 24px;
+  }
+
+  .info-title {
+    font-size: vars.$font-md;
+  }
+
+  .info-text {
+    font-size: 16px;
+  }
+}
+
