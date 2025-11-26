@@ -1013,9 +1013,12 @@ h3 {
   line-height: 1.6;
   font-family: Arial, sans-serif;
 }
-.info-text em {
+.info-text a {
+  color: #fff;
+  text-decoration: none;
+}
+.info-text a:hover {
   color: #cda349;
-  font-style: italic;
 }
 
 /* ============================================================

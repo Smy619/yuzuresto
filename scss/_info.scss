@@ -42,7 +42,7 @@
     font-size: 38px;
     font-weight: 700;
     color: vars.$color-gold;
-    padding:1px;
+    padding: 1px;
   }
 }
 
@@ -114,18 +114,21 @@
   line-height: 1.6;
   font-family: vars.$font-body;
 
-  em {
-    color: vars.$color-gold;
-    font-style: italic;
+  a {
+    color: vars.$color-white;
+    text-decoration: none;
+
+    &:hover {
+      color: vars.$color-gold;
+    }
   }
 }
-
 /* ============================================================
    TABLET ≥ 768px — 2 columns
 ============================================================ */
 @media (min-width: 768px) {
   .info-grid {
-    grid-template-columns: 1fr 1fr; 
+    grid-template-columns: 1fr 1fr;
     gap: 40px;
   }
 }
@@ -135,7 +138,7 @@
 ============================================================ */
 @media (min-width: 1024px) {
   .info-grid {
-    grid-template-columns: repeat(3, 1fr); 
+    grid-template-columns: repeat(3, 1fr);
     gap: 48px;
     align-items: start;
   }
@@ -152,4 +155,3 @@
     font-size: 16px;
   }
 }
-
