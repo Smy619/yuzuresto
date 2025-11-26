@@ -4,6 +4,7 @@ import { topbar } from "./topbar.js";
 import { dots } from "./dots.js";
 import { burger } from "./burger.js";
 import { lightbox } from "./lightbox.js";
+import { whyus } from "./whyus.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   lang();
@@ -12,4 +13,5 @@ document.addEventListener("DOMContentLoaded", () => {
   burger();
   lightbox();
   dots();
+  whyus();
 });

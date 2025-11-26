@@ -741,6 +741,18 @@ h3 {
 .whyus-card:hover .card-text {
   color: #111;
 }
+.whyus-card.active {
+  background: #cda349;
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(205, 163, 73, 0.35);
+}
+.whyus-card.active .number {
+  color: #4a3a12;
+}
+.whyus-card.active .card-title,
+.whyus-card.active .card-text {
+  color: #111;
+}
 
 /* Desktop 3 columns */
 @media (min-width: 1024px) {

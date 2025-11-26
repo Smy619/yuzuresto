@@ -96,6 +96,20 @@
       color: #111;
     }
   }
+  &.active {
+    background: vars.$color-gold;
+    transform: translateY(-6px);
+    box-shadow: 0 14px 30px rgba(205, 163, 73, 0.35);
+
+    .number {
+      color: #4a3a12;
+    }
+
+    .card-title,
+    .card-text {
+      color: #111;
+    }
+  }
 }
 
 /* Desktop 3 columns */
