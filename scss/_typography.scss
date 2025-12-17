@@ -1,0 +1,30 @@
+@use "variables" as vars;
+
+/* ====== _typography.scss (mobile-first) ====== */
+
+/* Headings (base for mobile) */
+
+h2,
+h3 {
+  color: vars.$color-gold-light;
+  margin-bottom: 0.8rem;
+}
+
+h2 {
+  font-size: clamp(1.5rem, 4vw, 1.75rem); /* ~24–28px on mobile */
+}
+h3 {
+  font-size: clamp(1.25rem, 3.4vw, 1.5rem); /* ~20–24px on mobile */
+}
+
+/* Section titles (shared) */
+.section-title,
+.avis-title {
+  font-family: vars.$font-title;
+  font-size: vars.$font-md; /* smaller on mobile */
+  color: vars.$color-gold;
+  margin: 0;
+  padding: 32px 0 12px; /* lighter padding for mobile */
+  line-height: 1.2;
+  text-wrap: balance; /* improve wrapping on narrow screens */
+}

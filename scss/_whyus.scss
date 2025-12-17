@@ -1,0 +1,125 @@
+@use "variables" as vars;
+
+/* ==========================
+   WHY US SECTION
+========================== */
+.whyus-section {
+  padding: 80px 0;
+  background: vars.$color-bg-secondary;
+  color: vars.$color-white;
+}
+
+.section-label {
+    font-family: vars.$font-accent;
+    font-size: 14px;
+    letter-spacing: 2px;
+    color: vars.$color-text;
+    display: inline-block;
+    margin-bottom: 4px;
+    position: relative;
+
+    &::after {
+      content: "";
+      display: inline-block;
+      width: 120px;
+      height: 1px;
+      background: vars.$color-gold;
+      margin-left: 12px;
+      vertical-align: middle;
+    }
+  }
+
+  .section-title {
+    font-family: vars.$font-title;
+    font-size: 38px;
+    font-weight: 700;
+    color: vars.$color-gold;
+    padding:1px;
+  }
+
+/* grid */
+.whyus-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 26px;
+}
+
+/* card */
+.whyus-card {
+  padding: 32px;
+  border-radius: 8px;
+  background: rgba(20, 20, 20, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.35);
+
+  transition: 
+    background 0.35s ease,
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+
+  cursor: pointer;
+
+  /* default text colors */
+  .number {
+    font-size: 24px;
+    font-weight: 700;
+    color: vars.$color-gold-light;
+    transition: color .35s ease;
+  }
+
+  .card-title {
+    font-family: vars.$font-title;
+    font-size: 20px;
+    margin-bottom: 12px;
+    transition: color .35s ease;
+    color:rgb(252, 247, 247);
+  }
+
+  .card-text {
+    color: vars.$color-muted;
+    line-height: 1.6;
+    transition: color .35s ease;
+  }
+
+  
+  &:hover {
+    background: vars.$color-gold; 
+    transform: translateY(-6px);
+    box-shadow: 0 14px 30px rgba(205, 163, 73, 0.35);
+
+    .number {
+      color: #4a3a12; 
+    }
+
+    .card-title,
+    .card-text {
+      color: #111;
+    }
+  }
+  &.active {
+    background: vars.$color-gold;
+    transform: translateY(-6px);
+    box-shadow: 0 14px 30px rgba(205, 163, 73, 0.35);
+
+    .number {
+      color: #4a3a12;
+    }
+
+    .card-title,
+    .card-text {
+      color: #111;
+    }
+  }
+}
+
+/* Desktop 3 columns */
+@media (min-width: #{vars.$bp-lg}) {
+  .whyus-title {
+    font-size: 34px;
+  }
+
+  .whyus-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+}

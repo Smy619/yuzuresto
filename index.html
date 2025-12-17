@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Yuzu est un restaurant asiatique à volonté à La Roche-sur-Yon. Tous les plats sont préparés à la commande, sans buffet, avec sushis et grillades, dans une ambiance conviviale."
+    />
+
+    <link rel="stylesheet" href="css/main.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Coiny&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <title>
+      Yuzu Resto – Restaurant Asiatique à volonté | Sushi, Grillades & Tablette
+    </title>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Restaurant",
+        "@id": "https://yuzuresto.com#restaurant",
+        "name": "Yuzu Restaurant à volonté",
+        "url": "https://yuzuresto.com",
+        "image": "https://yuzuresto.com/images/restaurant-home.jpg",
+        "telephone": "+33228973936",
+
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "7 Boulevard Edison",
+          "addressLocality": "La Roche-sur-Yon",
+          "postalCode": "85000",
+          "addressCountry": "FR"
+        },
+
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 46.6817318,
+          "longitude": -1.4403021
+        },
+
+        "servesCuisine": [
+          "Cuisine asiatique",
+          "Plats à volonté",
+          "Sushis",
+          "Grillades",
+          "Plats préparés à la commande"
+        ],
+
+        "priceRange": "€€",
+        "acceptsReservations": true,
+
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+            ],
+            "opens": "12:00",
+            "closes": "14:30"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+            ],
+            "opens": "19:00",
+            "closes": "22:30"
+          }
+        ],
+
+        "sameAs": [
+          "https://www.google.com/maps/place/Yuzu/@46.6817318,-1.4403021,17z"
+        ],
+
+        "hasMenu": {
+          "@type": "Menu",
+          "name": "Menu à volonté",
+          "description": "Plats préparés à la commande, sans buffet"
+        }
+      }
+    </script>
+  </head>
+
+  <body class="page-bg">
+    <header class="site-header">
+      <div class="top-bar">
+        <div class="contact-info">
+          <span>
+            <i class="fa-solid fa-phone"></i>
+            (+33)228973936
+          </span>
+        </div>
+        <div class="lang-switch">
+          <a href="#" class="lang-btn">FR</a> /
+          <a href="#" class="lang-btn">EN</a>
+        </div>
+      </div>
+
+      <div class="nav-bar">
+        <div class="nav-container">
+          <button class="burger-menu" id="burger-toggle">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+
+          <a href="index.html" class="brand">YUZU</a>
+          <nav class="site-nav" id="mobile-nav">
+            <ul>
+              <li><a href="index.html" class="nav-link">Accueil</a></li>
+              <li><a href="#menu" class="nav-link">Menu</a></li>
+              <li><a href="#tarifs" class="nav-link">Tarifs</a></li>
+              <li><a href="#infos" class="nav-link">Infos pratiques</a></li>
+            </ul>
+          </nav>
+          <!-- Appel à l’action (droite) -->
+          <a class="btn-cta" href="tel:+33228973936">Réserver</a>
+        </div>
+      </div>
+    </header>
+    <!-- Hero section -->
+    <section class="hero">
+      <video
+        class="hero-bg-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        webkit-playsinline
+        preload="auto"
+      >
+        <source src="./video/restaurant-home-v.mp4" type="video/mp4" />
+      </video>
+
+      <div class="hero-content">
+        <div class="hero-text">
+          <span class="hero-name">YUZU</span>
+          <div class="just-mobile">
+            <p>Spécialité En Japonaise</p>
+          </div>
+          <div class="btn-hero">
+            <a href="#menu" class="btn">Découvrir le menu</a>
+            <a href="#tarifs" class="btn-outline">Voir les tarifs</a>
+          </div>
+        </div>
+        <div class="hero-empty"></div>
+
+        <div class="hero-video-btn">
+          <a
+            href="https://www.tiktok.com/@restaurant.yuzu/video/7581233773266734338?is_from_webapp=1&sender_device=pc&web_id=7583022956336449026"
+            class="video-btn"
+            target="_blank"
+          >
+            <svg class="play-icon" viewBox="0 0 24 24">
+              <polygon points="8,5 19,12 8,19" fill="white" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <main id="top">
+      <!--===introduction==--->
+      <section id="about" class="about">
+        <div class="about_overlay"></div>
+        <!--colonne à gauche-->
+        <div class="about-container">
+          <h2 class="about_title">
+            Decouvrez
+            <span class="gold">Yuzu</span>
+          </h2>
+          <p class="about_lead">
+            Tous nos plats sont à volonté,sans buffet.<br />
+            Spécialités japonaises, sushis et plats préparés à la commande.
+          </p>
+          <div>
+            <a href="visite-virturelle.com" class="about_btn">Visite 3D</a>
+          </div>
+        </div>
+        <!--colone à droit image du restaurant-->
+        <div class="about_image">
+          <img
+            src="./images/restaurant-interieur.jpg"
+            alt="restaurant-intérieur"
+            loading="lazy"
+            width="640"
+            height="420"
+          />
+        </div>
+      </section>
+
+      <!---Tarifs--->
+      <section id="tarifs" class="tarifs-section">
+        <div class="container">
+          <!-- Section header -->
+          <div class="section-header">
+            <span class="section-label">TARIFS</span>
+            <h1 class="section-title">Nos formules à volonté</h1>
+          </div>
+
+          <div class="tarifs-list">
+            <!-- MIDI -->
+            <div class="tarif-group">
+              <h3 class="tarif-title">Midi</h3>
+
+              <div class="tarif-row">
+                <span>Lundi – vendredi</span>
+                <span class="price">19,90 €</span>
+              </div>
+
+              <div class="tarif-row">
+                <span>Week-end et jours fériés</span>
+                <span class="price">32,90 €</span>
+              </div>
+            </div>
+
+            <!-- SOIR -->
+            <div class="tarif-group">
+              <h3 class="tarif-title">Soir</h3>
+
+              <div class="tarif-row">
+                <span>Lundi – jeudi</span>
+                <span class="price">29,90 €</span>
+              </div>
+
+              <div class="tarif-row">
+                <span>Week-end et jours fériés</span>
+                <span class="price">32,90 €</span>
+              </div>
+            </div>
+
+            <!-- ENFANT 1.1m - 1.4m -->
+            <div class="tarif-group">
+              <h3 class="tarif-title">Enfant (1.1m – 1.4m)</h3>
+
+              <div class="tarif-row">
+                <span>Lundi – vendredi midi</span>
+                <span class="price">11,90 €</span>
+              </div>
+
+              <div class="tarif-row">
+                <span>Soir, week-end et jours fériés</span>
+                <span class="price">15,90 €</span>
+              </div>
+            </div>
+
+            <!-- ENFANT -1.1m -->
+            <div class="tarif-group highlight">
+              <h3 class="tarif-title">
+                Enfant (-1.1m) <span class="free">Gratuit</span>
+              </h3>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!---section why us-->
+      <section id="whyus" class="whyus-section">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-label">Pourquoi nous</span>
+            <h1 class="section-title">Pourquoi choisir notre restaurant ?</h1>
+          </div>
+
+          <div class="whyus-grid">
+            <div class="whyus-card">
+              <span class="number">01</span>
+              <h3 class="card-title">Ingrédients Frais</h3>
+              <p class="card-text">
+                Nous utilisons chaque jour des produits frais et de qualité afin
+                d’offrir le meilleur goût à nos clients.
+              </p>
+            </div>
+
+            <div class="whyus-card">
+              <span class="number">02</span>
+              <h3 class="card-title">Cuisine Authentique</h3>
+              <p class="card-text">
+                Des plats préparés par des chefs passionnés respectant les
+                saveurs asiatiques traditionnelles.
+              </p>
+            </div>
+
+            <div class="whyus-card">
+              <span class="number">03</span>
+              <h3 class="card-title">Ambiance Conviviale</h3>
+              <p class="card-text">
+                Un environnement chaleureux et moderne, idéal pour les familles,
+                amis et événements spéciaux.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!---section gallery ---->
+      <section id="gallery" class="gallery-section">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-label">GALLERY</span>
+            <h1 class="section-title">Aperçu en images de notre restaurant</h1>
+          </div>
+
+          <div class="gallery-grid">
+            <img
+              src="./images/gallery1.jpg"
+              loading="lazy"
+              data-full="./images/gallery1.jpg"
+              alt=""
+            />
+            <img
+              src="./images/gallery2.jpg"
+              loading="lazy"
+              data-full="./images/gallery2.jpg"
+              alt=""
+            />
+            <img
+              src="./images/gallery3.jpg"
+              loading="lazy"
+              data-full="./images/gallery3.jpg"
+              alt=""
+            />
+            <img
+              src="./images/gallery4.jpg"
+              loading="lazy"
+              data-full="./images/gallery4.jpg"
+              alt=""
+            />
+
+            <img
+              src="./images/gallery5.jpg"
+              loading="lazy"
+              data-full="./images/gallery5.jpg"
+              alt=""
+            />
+            <img
+              src="./images/gallery6.jpg"
+              loading="lazy"
+              data-full="./images/gallery6.jpg"
+              alt=""
+            />
+            <img
+              src="./images/gallery7.jpg"
+              loading="lazy"
+              data-full="./images/gallery7.jpg"
+              alt=""
+            />
+            <img
+              src="./images/gallery8.jpg"
+              loading="lazy"
+              data-full="./images/gallery8.jpg"
+              alt=""
+            />
+
+            <img
+              src="./images/gallery9.jpg"
+              loading="lazy"
+              data-full="./images/gallery9.jpg"
+              alt=""
+            />
+            <img
+              src="./images/gallery10.jpg"
+              loading="lazy"
+              data-full="./images/gallery10.jpg"
+              alt=""
+            />
+            <img
+              src="./images/gallery11.jpg"
+              loading="lazy"
+              data-full="./images/gallery11.jpg"
+              alt=""
+            />
+            <img
+              src="./images/gallery12.jpg"
+              loading="lazy"
+              data-full="./images/gallery12.jpg"
+              alt=""
+            />
+
+            <img
+              src="./images/gallery13.jpg"
+              loading="lazy"
+              data-full="./images/gallery13.jpg"
+              alt=""
+            />
+            <img
+              src="./images/gallery14.jpg"
+              loading="lazy"
+              data-full="./images/gallery14.jpg"
+              alt=""
+            />
+            <img
+              src="./images/gallery15.jpg"
+              loading="lazy"
+              data-full="./images/gallery15.jpg"
+              alt=""
+            />
+            <img
+              src="./images/gallery16.jpg"
+              loading="lazy"
+              data-full="./images/gallery16.jpg"
+              alt=""
+            />
+          </div>
+        </div>
+
+        <!-- Lightbox Modal -->
+        <div id="lightbox" class="lightbox">
+          <span class="close">&times;</span>
+          <img id="lightbox-img" src="" alt="" />
+          <span class="prev">&#10094;</span>
+          <span class="next">&#10095;</span>
+        </div>
+      </section>
+      <!--===Avis===-->
+      <!--<section id="avis" class="avis">
+        <div class="container">
+          <h1 class="avis-title">Avis de nos clients</h1>
+
+          <div class="slider-viewport">
+            <div class="slider-track">
+              <article id="1" class="card">
+                <i class="fa-solid fa-quote-left quote-left"></i>
+                <p class="text">
+                  Super expérience ! Buffet varié, produits frais et équipe
+                  chaleureuse.
+                </p>
+                <i class="fa-solid fa-quote-right quote-right"></i>
+                <div class="author">
+                  <div class="name">Jean Dupont</div>
+                </div>
+              </article>
+
+              <article class="card">
+                <p class="text">
+                  <i class="fa-solid fa-quote-left quote-left"></i>
+                  Super expérience ! Buffet varié, produits frais et équipe
+                  chaleureuse. Nous reviendrons avec plaisir.
+                  <i class="fa-solid fa-quote-right quote-right"></i>
+                </p>
+                <div class="author">
+                  <div class="name">Jean Dupont</div>
+                </div>
+              </article>
+
+              <article class="card">
+                <p class="text">
+                  <i class="fa-solid fa-quote-left quote-left"></i>
+                  Super expérience ! Buffet varié, produits frais et équipe
+                  chaleureuse. Nous reviendrons avec plaisir.
+                  <i class="fa-solid fa-quote-right quote-right"></i>
+                </p>
+                <div class="author">
+                  <div class="name">Jean Dupont</div>
+                </div>
+              </article>
+
+              <article class="card">
+                <p class="text">
+                  <i class="fa-solid fa-quote-left quote-left"></i>
+                  Super expérience ! Buffet varié, produits frais et équipe
+                  chaleureuse. Nous reviendrons avec plaisir.
+                  <i class="fa-solid fa-quote-right quote-right"></i>
+                </p>
+                <div class="author">
+                  <div class="name">Jean Dupont</div>
+                </div>
+              </article>
+
+              <article class="card">
+                <p class="text">
+                  <i class="fa-solid fa-quote-left quote-left"></i>
+                  Super expérience ! Buffet varié, produits frais et équipe
+                  chaleureuse. Nous reviendrons avec plaisir.
+                  <i class="fa-solid fa-quote-right quote-right"></i>
+                </p>
+                <div class="author">
+                  <div class="name">Jean Dupont</div>
+                </div>
+              </article>
+
+              <article class="card">
+                <p class="text">
+                  <i class="fa-solid fa-quote-left quote-left"></i>
+                  Super expérience ! Buffet varié, produits frais et équipe
+                  chaleureuse. Nous reviendrons avec plaisir.
+                  <i class="fa-solid fa-quote-right quote-right"></i>
+                </p>
+                <div class="author">
+                  <div class="name">Jean Dupont</div>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="dots"></div>
+        </div>
+      </section>-->
+
+      <!------======Info=======------>
+      <section id="info" class="info-pratique">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-label">CONTACT</span>
+            <h1 class="section-title">Contact US</h1>
+          </div>
+        </div>
+        <div class="map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5474.432230438729!2d-1.442882387658775!3d46.681735451263954!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48042fdd425deb21%3A0xbbbf283a149b2db8!2sYuzu!5e0!3m2!1sfr!2sfr!4v1755492888899!5m2!1sfr!2sfr"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+        <div class="container">
+          <div class="info-grid">
+            <li class="info-item">
+              <span class="info-ico"
+                ><i class="fa-solid fa-location-dot"></i
+              ></span>
+              <div class="info-body">
+                <p class="info-title">Adresse</p>
+                <p class="info-text">7 Bd Edison, 85000 La Roche-sur-Yon</p>
+              </div>
+            </li>
+
+            <li class="info-item">
+              <span class="info-ico"><i class="fa-regular fa-clock"></i></span>
+              <div class="info-body">
+                <p class="info-title">Horaires</p>
+                <p class="info-text">
+                  Lun-Dim : 12h00-14h30<br />
+                  Lun-Dim : 19h00-22h30<br />
+                </p>
+              </div>
+            </li>
+
+            <li class="info-item">
+              <span class="info-ico"><i class="fa-solid fa-phone"></i></span>
+              <div class="info-body">
+                <p class="info-title">Téléphone</p>
+                <p class="info-text">02 28 97 39 36</p>
+              </div>
+            </li>
+          </div>
+          <!--  ====== FORMULAIRE MASQUÉ ====== 
+            <div class="info-right">
+              <form class="contact-form" action="#" method="post">
+                <div class="row">
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Votre nom"
+                    required
+                  />
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Votre email"
+                    required
+                  />
+                </div>
+                <input
+                  type="text"
+                  name="subject"
+                  placeholder="Sujet"
+                  required
+                />
+                <textarea
+                  name="message"
+                  rows="6"
+                  placeholder="Message"
+                  required
+                ></textarea>
+                <button type="submit" class="btn-gold">
+                  Envoyer le message
+                </button>
+              </form>
+            <div>
+              ====== FIN FORMULAIRE ====== -->
+        </div>
+      </section>
+    </main>
+
+    <!---Footer--->
+    <footer class="site-footer">
+      <div class="socials">
+        <a
+          href="https://www.facebook.com/Yuzu85"
+          target="_blank"
+          aria-label="Facebook"
+        >
+          <i class="fa-brands fa-facebook"></i>
+        </a>
+        <a
+          href="https://www.tiktok.com/@restaurant.yuzu"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="TikTok Yuzu Restaurant"
+        >
+          <i class="fa-brands fa-tiktok"></i>
+        </a>
+
+        <a
+          href="https://www.instagram.com/restaurant.yuzu"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram Yuzu Restaurant"
+        >
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+      </div>
+      <div>
+        <p class="footer-style">
+          <span>© Copyright 2025 <span class="style-logo">YUZU </span> </span>
+          <span>Tous Droits Réservés.</span>
+          <span>
+            Conçu et développé par
+            <a href="solenesun.com">Solene SUN</a>
+          </span>
+        </p>
+      </div>
+    </footer>
+    <script type="module" src="js/main.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,76 @@
+@use "variables" as vars;
+footer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 20px;
+  border-top: 1px solid vars.$color-border-light;
+}
+
+/* ===== Site footer container ===== */
+/* Mobile: stacked vertically, centered */
+.site-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 0;
+  color: vars.$color-white;
+  text-align: center;
+  gap: 24px;
+}
+
+/* ===== Social icons ===== */
+.socials {
+  display: flex;
+  gap: 14px;
+
+  a {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1.8px solid vars.$color-muted;
+    background: transparent;
+    color: vars.$color-muted;
+    font-size: 19px;
+    text-decoration: none;
+    transition: all 0.25s ease;
+
+    &:hover {
+      color: vars.$color-gold;
+      border-color: vars.$color-gold;
+      box-shadow: 0 0 12px rgba(205, 163, 73, 0.6);
+      transform: translateY(-2px);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+}
+
+/* ===== Footer text / links ===== */
+.footer-style {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: vars.$font-sm;
+  font-family: vars.$font-title;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  gap:10px;
+
+  a {
+    color: vars.$color-gold;
+    text-decoration: none;
+  }
+}
+
+/* ===== Logo style in footer ===== */
+.style-logo {
+  font-family: vars.$font-logo;
+  color: vars.$color-gold;
+}

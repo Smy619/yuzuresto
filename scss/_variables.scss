@@ -1,0 +1,28 @@
+// === Color Palette ===
+$color-dark: #000;
+$color-bg-secondary: #1b1818;
+$color-white: #fff;
+$color-text: #c4bfbf;
+$color-muted: rgba(255, 255, 255, 0.6);
+$color-gold: #cda349;
+$color-gold-light: #d4af37;
+$color-highlight: rgba(212, 175, 55, 0.7);
+$color-border-light: rgba(255, 255, 255, 0.2);
+
+// === Font Families ===
+$font-logo: "Playfair Display", serif;
+$font-title: "Times New Roman", Times, serif;
+$font-body: Arial, sans-serif;
+$font-accent: "Georgia", "Courier New", serif;
+
+// === Font Sizes ===
+$font-lg: 36px;
+$font-md: 18px;
+$font-sm: 14px;
+
+// Breakpoints (mobile-first)
+$bp-sm: 576px; 
+$bp-md: 768px; 
+$bp-lg: 1024px;
+$bp-xl: 1280px; 
+$container-max: 1200px;

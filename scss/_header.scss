@@ -1,0 +1,196 @@
+@use "variables" as vars;
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: background 0.3s ease;
+}
+
+.top-bar {
+  width: 100%;
+  max-height: 160px;
+  margin: 0 auto;
+  padding: 10px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: #ddd;
+  transition: opacity 0.3s ease, transform 0.3s ease, height 0.3s ease,
+    padding 0.3s ease;
+  will-change: opacity, transform, height, padding;
+  max-width: none;
+  justify-content: space-between;
+  align-items: center;
+}  
+
+.contact-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  font-size: 14px;
+  font-family: vars.$font-title;
+}
+.contact-info i {
+  color: vars.$color-highlight;
+}
+
+.lang-switch a {
+  color: vars.$color-white;
+  text-decoration: none;
+  font-size: 14px;
+  font-family: vars.$font-title;
+  
+}
+.lang-switch a:hover,
+.lang-switch a.active {
+  color: vars.$color-highlight;
+  font-weight: 700;
+}
+
+.site-header.is-scrolled .top-bar {
+  transform: translateY(-100%); 
+  opacity: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.nav-bar {
+  width: 100%;
+  background-color:transparent;
+}  
+
+.nav-container {
+  margin: 0 auto;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  max-width: none;
+}
+
+.brand {
+  font-family: vars.$font-logo;
+  font-size: 35px; 
+  font-weight: 700;
+  color: vars.$color-white;
+  text-decoration: none;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.burger-menu {
+  display: inline-block;
+  background: none;
+  border: none;
+  color: vars.$color-white;
+  font-size: 26px;
+  margin-right: 8px;
+  cursor: pointer;
+}
+.site-nav {
+  width: 100%;
+}
+.site-nav ul {
+  display: none;
+  flex-direction: column;
+  gap: 12px;
+  list-style: none;
+  margin: 15px 0 0;
+  padding: 0;
+  font-family: "Gill Sans", sans-serif;
+  font-size: 16px;
+}
+.site-nav a {
+  color: vars.$color-white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.site-nav a:hover,
+.site-nav a.active {
+  color: vars.$color-highlight;
+}
+
+.nav-open .site-nav ul {
+  display: flex;
+}
+
+/* ——— Small tablets (≥ 576px) ——— */
+@media (min-width: vars.$bp-sm) {
+  .top-bar {
+    flex-direction: row;
+    padding: 8px 24px;
+    max-height: 60px;
+  }
+
+  .contact-info {
+    justify-content: flex-start;
+    gap: 20px;
+  }
+
+  .lang-switch {
+    margin-left: auto;
+  }
+}
+
+/* ——— Tablets & Small Desktop (≥ 768px) ——— */
+@media (min-width: vars.$bp-md) {
+  .nav-container {
+    max-width: vars.$container-max;
+    padding: 16px 24px;
+  }
+
+  /* Hide burger menu on desktop */
+  .burger-menu {
+    display: none;
+  }
+
+  /* Desktop nav layout */
+  .site-nav {
+    width: auto;
+  }
+
+  .site-nav ul {
+    display: flex !important;
+    flex-direction: row;
+    align-items: center;
+    gap: 24px;
+    margin: 0;
+  }
+
+  .site-nav ul li {
+    padding: 0;
+  }
+
+  /* brand become left aligned */
+  .brand {
+    font-size: 38px;
+  }
+
+  /* Reserve button (if exists) stays at far right */
+  .btn-cta {
+    display: inline-block;
+    margin-left: auto;
+    font-size: 16px;
+    padding: 10px 18px;
+  }
+}
+
+/* ——— Large Desktop (≥ 1024px) ——— */
+@media (min-width: vars.$bp-lg) {
+  .nav-container {
+    padding: 20px 0;
+  }
+
+  .brand {
+    font-size: 42px;
+  }
+
+  .site-nav ul {
+    gap: 32px;
+    font-size: 18px;
+  }
+}

@@ -1,0 +1,71 @@
+/* ==========================
+   TARIFS
+========================== */
+@use "variables" as vars;
+
+.tarifs-section {
+  padding: 100px 0;
+  background: #0f0f0f;
+}
+
+.tarifs-list {
+  max-width: 720px;
+  margin: 60px auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.tarif-group {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.tarif-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.tarif-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 8px;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.15);
+
+  span {
+    font-size: 16px;
+    color: #cfcfcf;
+  }
+}
+
+.price {
+  font-size: 18px;
+  font-weight: 600;
+  color: vars.$color-gold;
+}
+
+/* Gratuit highlight */
+.highlight {
+  .tarif-title {
+    font-size: 20px;
+  }
+
+  .free {
+    color: #e74c3c;
+    font-weight: 700;
+    margin-left: 8px;
+  }
+}
+
+/* Responsive */
+@media (max-width: vars.$bp-sm) {
+  .tarif-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+}

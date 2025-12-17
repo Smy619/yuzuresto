@@ -1,0 +1,149 @@
+@use "variables" as vars;
+
+/* ============================================================
+   AVIS — MOBILE FIRST
+============================================================ */
+
+.avis {
+  padding: 40px 0 56px;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+}
+
+.avis-title {
+  font-family: vars.$font-title;
+  font-size: vars.$font-md;
+  color: vars.$color-gold;
+  text-align: center;
+  margin: 0 0 20px;
+}
+
+/* ===== Slider wrapper (MOBILE) ===== */
+.slider-viewport {
+  overflow: hidden;
+  width: 100%;
+}
+
+.slider-track {
+  display: flex;
+  transition: transform 0.6s ease;
+  will-change: transform;
+
+  .card {
+    flex: 0 0 100%; /* Mobile: 1 card per view */
+    padding: 0;
+    margin: 0;
+  }
+}
+
+/* ===== Card styles ===== */
+.card {
+  background: rgba(29, 25, 25, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 24px;
+  box-shadow: 0 10px 26px rgba(0,0,0,.35);
+  max-width: 100%;
+  position: relative;
+
+  .quote-left,
+  .quote-right {
+    color: vars.$color-gold;
+    font-size: 18px;
+  }
+
+  .quote-left { padding-right: 10px; }
+  .quote-right { padding-left: 10px; position: absolute; }
+
+  .text {
+    color: vars.$color-text;
+    font-size: 14px;
+    font-style: italic;
+  }
+}
+
+.author .name {
+  font-weight: 700;
+  color: vars.$color-white;
+  padding-top: 12px;
+  text-align: center;
+}
+
+/* ===== Dots ===== */
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 12px;
+
+  button {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255,255,255,.4);
+    cursor: pointer;
+
+    &.active {
+      background: vars.$color-gold-light;
+    }
+  }
+}
+
+/* ============================================================
+   TABLET — SHOW 2 CARDS SIDE BY SIDE
+============================================================ */
+
+@media (min-width: #{vars.$bp-md}) {
+  .slider-track .card {
+    flex: 0 0 50%; /* Tablet: 2 cards per view */
+    padding: 16px;
+  }
+
+  .card {
+    padding: 28px;
+  }
+}
+
+/* ============================================================
+   DESKTOP — GRID MODE (NO SLIDER)
+============================================================ */
+
+@media (min-width: #{vars.$bp-lg}) {
+
+  /* Turn off slider behavior */
+  .slider-viewport {
+    overflow: visible;
+  }
+
+  .slider-track {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Desktop: 3 cards */
+    gap: 24px;
+    transform: none !important; /* Stop JS slider shifting */
+  }
+
+  .slider-track .card {
+    flex: unset; /* Remove mobile slide behavior */
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .dots {
+    display: none; /* Desktop: hide mobile dots */
+  }
+}
+
+/* ============================================================
+   LARGE DESKTOP — 4 CARDS IF YOU WANT (OPTIONAL)
+============================================================ */
+
+@media (min-width: #{vars.$bp-xl}) {
+  .slider-track {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
