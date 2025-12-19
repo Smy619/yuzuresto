@@ -67,7 +67,19 @@ h3 {
   left: 0;
   width: 100%;
   z-index: 1000;
-  transition: background 0.3s ease;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.15));
+  backdrop-filter: blur(6px);
+  transition: transform 0.35s ease, background 0.3s ease;
+  transform: translateY(0);
+  will-change: transform;
+}
+
+.site-header.nav-open {
+  transform: translateY(0) !important;
+}
+
+.site-header.on-hero {
+  background: transparent;
 }
 
 .top-bar {
@@ -116,7 +128,6 @@ h3 {
   transform: translateY(-100%);
   opacity: 0;
   pointer-events: none;
-  overflow: hidden;
 }
 
 .nav-bar {
@@ -135,6 +146,7 @@ h3 {
 }
 
 .brand {
+  display: none;
   font-family: "Playfair Display", serif;
   font-size: 35px;
   font-weight: 700;
@@ -204,6 +216,7 @@ h3 {
   .nav-container {
     max-width: 1200px;
     padding: 16px 24px;
+    gap: 32px;
   }
   /* Hide burger menu on desktop */
   .burger-menu {
@@ -212,11 +225,13 @@ h3 {
   /* Desktop nav layout */
   .site-nav {
     width: auto;
+    flex: 1;
   }
   .site-nav ul {
     display: flex !important;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
     gap: 24px;
     margin: 0;
   }
@@ -225,14 +240,24 @@ h3 {
   }
   /* brand become left aligned */
   .brand {
+    display: inline-block;
     font-size: 38px;
+    margin-right: 32px;
   }
   /* Reserve button (if exists) stays at far right */
   .btn-cta {
     display: inline-block;
-    margin-left: auto;
+    margin-left: 0;
     font-size: 16px;
     padding: 10px 18px;
+  }
+  .top-bar {
+    position: absolute;
+    top: 8px;
+    right: 24px;
+    padding: 0;
+    height: auto;
+    background: transparent;
   }
 }
 /* ——— Large Desktop (≥ 1024px) ——— */
@@ -256,8 +281,8 @@ h3 {
 }
 
 .hero {
-  min-height: 55vh;
-  max-height: 520px;
+  min-height: 100vh;
+  max-height: none;
   position: relative;
   display: flex;
   align-items: center;
@@ -295,11 +320,25 @@ h3 {
   padding: 32px 20px;
   z-index: 2;
   color: #fff;
-  max-width: 1200px;
+  max-width: 100%;
   width: 100%;
 }
 
 /* ===== TEXT AREA ===== */
+.hero-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-kicker {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 35px;
+  opacity: 0.8;
+  font-style: italic;
+}
+
 .hero-text {
   display: flex;
   flex-direction: column;
@@ -325,10 +364,16 @@ h3 {
   white-space: normal;
 }
 
-.just-mobile {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+.hero-title {
+  font-size: clamp(20px, 3vw, 26px);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
+}
+
+.hero-subtitle {
+  font-style: italic;
+  font-size: 15px;
 }
 
 /* ===== VIDEO BUTTON ===== */
@@ -440,7 +485,7 @@ h3 {
   }
   .hero-content {
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     gap: 60px;
     margin-top: 0;
@@ -450,7 +495,7 @@ h3 {
   .hero-text {
     align-items: flex-start;
     text-align: left;
-    max-width: 500px;
+    max-width: 520px;
     padding: 0;
   }
   .hero-name {
@@ -477,6 +522,14 @@ h3 {
   .hero-bg-video {
     object-position: center center;
   }
+  .hero-video-btn {
+    position: absolute;
+    right: clamp(32px, 6vw, 120px);
+    top: 50%;
+    transform: translateY(-50%);
+    width: auto;
+    margin-top: 0;
+  }
 }
 /* ===== Desktop ≥ 1024px ===== */
 @media (min-width: 1024px) {
@@ -486,27 +539,33 @@ h3 {
   }
   .hero-content {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     gap: 100px;
     max-width: 1200px;
     margin: 0 auto;
   }
   .hero-text {
+    display: flex;
+    flex-direction: column;
     align-items: flex-start;
-    text-align: left;
     max-width: 520px;
     padding: 0;
   }
+  .hero-brand {
+    flex-direction: row;
+    align-items: baseline;
+    gap: 14px;
+  }
+  .hero-kicker {
+    font-size: 35px;
+    margin: 0;
+  }
   .hero-name {
-    font-size: 90px;
+    font-size: 45px;
   }
   .hero-text p {
     font-size: 19px;
-  }
-  .hero-empty {
-    width: 100%;
-    height: 100%;
   }
   .hero-video {
     width: auto;

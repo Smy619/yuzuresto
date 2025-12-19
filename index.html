@@ -101,12 +101,6 @@
   <body class="page-bg">
     <header class="site-header">
       <div class="top-bar">
-        <div class="contact-info">
-          <span>
-            <i class="fa-solid fa-phone"></i>
-            (+33)228973936
-          </span>
-        </div>
         <div class="lang-switch">
           <a href="#" class="lang-btn">FR</a> /
           <a href="#" class="lang-btn">EN</a>
@@ -134,7 +128,7 @@
       </div>
     </header>
     <!-- Hero section -->
-    <section class="hero">
+    <section class="hero" aria-label="Présentation du restaurant Yuzu">
       <video
         class="hero-bg-video"
         autoplay
@@ -149,22 +143,28 @@
 
       <div class="hero-content">
         <div class="hero-text">
+          <div class="hero-brand">
+          <span class="hero-kicker">Welcome to</span>
           <span class="hero-name">YUZU</span>
-          <div class="just-mobile">
-            <p>Spécialité En Japonaise</p>
           </div>
+          <h1 class="hero-title">Restaurant à volonté à La Roche-sur-Yon</h1>
+
+          <p class="hero-subtitle">
+            Cuisine préparée à la commande, sans buffet exposé.
+          </p>
           <div class="btn-hero">
             <a href="#menu" class="btn">Découvrir le menu</a>
             <a href="#tarifs" class="btn-outline">Voir les tarifs</a>
           </div>
         </div>
-        <div class="hero-empty"></div>
 
         <div class="hero-video-btn">
           <a
             href="https://www.tiktok.com/@restaurant.yuzu/video/7581233773266734338?is_from_webapp=1&sender_device=pc&web_id=7583022956336449026"
             class="video-btn"
             target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Voir la vidéo du restaurant Yuzu"
           >
             <svg class="play-icon" viewBox="0 0 24 24">
               <polygon points="8,5 19,12 8,19" fill="white" />

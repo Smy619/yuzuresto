@@ -7,10 +7,7 @@ import { lightbox } from "./lightbox.js";
 import { whyus } from "./whyus.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-  console.log("✅ DOMContentLoaded fired");
-
-  // 任何模块出错，都不会影响后面的 video
-  const safe = (fn, name) => {
+   const safe = (fn, name) => {
     try {
       fn();
     } catch (e) {
@@ -26,35 +23,30 @@ document.addEventListener("DOMContentLoaded", () => {
   safe(dots, "dots");
   safe(whyus, "whyus");
 
-  // ===== HERO VIDEO (必须放最后，且不被其他模块影响) =====
   const video = document.querySelector(".hero-bg-video");
-  console.log("🎥 video element:", video);
-
   if (!video) return;
 
-  const playHard = () => {
-    console.log("▶️ try play, paused =", video.paused, "readyState =", video.readyState);
-    video.play().then(() => {
-      console.log("✅ playing!");
-    }).catch((err) => {
-      console.warn("⚠️ play blocked:", err);
-    });
+  const tryPlay = () => {
+    if (!video.paused) return;
+    video.play().catch(() => {});
   };
 
-  // 等视频真的可播放再试（关键）
-  video.addEventListener("canplay", playHard, { once: true });
+  video.addEventListener("canplay", tryPlay, { once: true });
+  window.addEventListener("pageshow", tryPlay);
+  document.addEventListener("click", tryPlay, { once: true });
+  document.addEventListener("touchstart", tryPlay, { once: true });
 
-  // 首次加载 / 初始化后再试
-  playHard();
-  setTimeout(playHard, 300);
-  setTimeout(playHard, 1000);
+  const hero = document.querySelector(".hero");
+const header = document.querySelector(".site-header");
 
-  // BFCache 恢复也再试
-  window.addEventListener("pageshow", playHard);
+if (hero && header) {
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      header.classList.toggle("on-hero", entry.isIntersecting);
+    },
+    { threshold: 0.1 }
+  );
+  observer.observe(hero);
+}
 
-  // 用户第一次交互兜底
-  document.addEventListener("click", playHard, { once: true });
-  document.addEventListener("touchstart", playHard, { once: true });
 });
-
-

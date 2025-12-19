@@ -1,13 +1,42 @@
 export function topbar() {
-  const header = document.querySelector('.site-header');
-  if (!header) { console.warn('[topbar] .site-header not found'); return; }
+  const header = document.querySelector(".site-header");
+  if (!header) return;
 
-  const threshold = 50;
+  let lastScrollY = window.scrollY;
 
-  const onScroll = () => {
-    header.classList.toggle('is-scrolled', window.scrollY > threshold);
+  const update = () => {
+    // menu open -> freeze header
+    if (header.classList.contains("nav-open")) return;
+
+    const current = window.scrollY;
+    const headerHeight = header.offsetHeight;
+
+    // optional: hero zone behavior
+    if (current < 80) {
+      header.classList.add("on-hero");
+      header.classList.remove("is-scrolled");
+      header.style.transform = "translateY(0)";
+      lastScrollY = current;
+      return;
+    }
+
+    header.classList.remove("on-hero");
+    header.classList.add("is-scrolled");
+
+    // down -> hide, up -> show
+    if (current > lastScrollY && current > headerHeight) {
+      header.style.transform = `translateY(-${headerHeight}px)`;
+    } else {
+      header.style.transform = "translateY(0)";
+    }
+
+    lastScrollY = current;
   };
 
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
+  window.addEventListener("scroll", update, { passive: true });
+  window.addEventListener("resize", update, { passive: true });
+  update();
 }
+
+
+
