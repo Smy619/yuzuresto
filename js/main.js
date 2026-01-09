@@ -5,6 +5,8 @@ import { dots } from "./dots.js";
 import { burger } from "./burger.js";
 import { lightbox } from "./lightbox.js";
 import { whyus } from "./whyus.js";
+import { formuleTabs } from "./formuleTabs.js";
+
 
 
 
@@ -24,6 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
   safe(lightbox, "lightbox");
   safe(dots, "dots");
   safe(whyus, "whyus");
+  safe(formuleTabs, "formuleTabs");
 
   const video = document.querySelector(".hero-bg-video");
   if (!video) return;
