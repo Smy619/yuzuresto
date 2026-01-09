@@ -573,7 +573,7 @@ h3 {
    Menu Section (mobile first)
 ========================= */
 .menu-section {
-  padding: 100px 0;
+  padding: 80px 16px;
 }
 
 /* =========================
@@ -711,7 +711,7 @@ h3 {
 ========================= */
 @media (min-width: 768px) {
   .menu-section {
-    padding: 80px 16px;
+    padding: 100px 0;
   }
   .formule-title {
     font-size: 18px;
@@ -749,6 +749,42 @@ h3 {
     font-style: italic;
   }
 }
+/* =========================
+   Menu note (formule diff)
+========================= */
+.menu-note {
+  grid-template-columns: 1fr;
+  padding: 6px 0;
+  opacity: 0.7;
+}
+.menu-note::after {
+  display: none;
+}
+.menu-note .menu-content p {
+  display: block;
+  font-size: 13px;
+  font-style: italic;
+  color: #aaa;
+}
+
+/* =========================
+   Container safety
+========================= */
+.menu-section .container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* =========================
+   Tabs scroll polish
+========================= */
+.formule-tabs {
+  -webkit-overflow-scrolling: touch;
+}
+.formule-tabs::-webkit-scrollbar {
+  display: none;
+}
+
 /* ================================
    GALLERY SECTION
 ================================ */
