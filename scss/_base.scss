@@ -19,7 +19,6 @@ body {
   font-family: vars.$font-body;
   color: vars.$color-white;
   background-color: vars.$color-dark;
-
   overflow-x: hidden; /* ⚠️ 只在 body 锁横向 */
 }
 
