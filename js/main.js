@@ -1,6 +1,6 @@
 import { lang } from "./lang.js";
 import { navActive } from "./navActive.js";
-import { headerScroll } from "./headerScroll.js";
+
 import { dots } from "./dots.js";
 import { burger } from "./burger.js";
 import { lightbox } from "./lightbox.js";
@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   safe(lang, "lang");
-  safe(headerScroll, "headerScroll");
+ 
   safe(navActive, "navActive");
   safe(burger, "burger");
   safe(lightbox, "lightbox");
