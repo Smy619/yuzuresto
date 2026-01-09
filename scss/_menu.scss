@@ -1,0 +1,69 @@
+@use "variables" as vars;
+.menu-visual {
+  padding: 80px 0;
+}
+
+.menu-header {
+  margin-bottom: 40px;
+}
+
+.menu-label {
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: vars.$color-highlight;
+}
+
+.menu-title {
+  font-size: 36px;
+  margin-top: 8px;
+}
+
+/* Tabs */
+.menu-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.menu-tab {
+  background: none;
+  border: none;
+  color: vars.$color-white;
+  font-size: 16px;
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.menu-tab.active {
+  opacity: 1;
+  color: vars.$color-highlight;
+  font-weight: 700;
+}
+
+/* Grids */
+.menu-grid {
+  display: none;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 32px;
+}
+
+.menu-grid.active {
+  display: grid;
+}
+
+.menu-item {
+  text-align: center;
+}
+
+.menu-item img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+
+.menu-item h3 {
+  font-size: 16px;
+}

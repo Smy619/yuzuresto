@@ -1,10 +1,12 @@
 import { lang } from "./lang.js";
 import { navActive } from "./navActive.js";
-import { topbar } from "./topbar.js";
+import { headerScroll } from "./headerScroll.js";
 import { dots } from "./dots.js";
 import { burger } from "./burger.js";
 import { lightbox } from "./lightbox.js";
 import { whyus } from "./whyus.js";
+
+
 
 document.addEventListener("DOMContentLoaded", () => {
    const safe = (fn, name) => {
@@ -16,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   safe(lang, "lang");
-  safe(topbar, "topbar");
+  safe(headerScroll, "headerScroll");
   safe(navActive, "navActive");
   safe(burger, "burger");
   safe(lightbox, "lightbox");

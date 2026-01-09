@@ -1,88 +1,49 @@
 @use "variables" as vars;
 
+/* ================= HEADER ================= */
+
 .site-header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
+
   background: linear-gradient(
     to bottom,
     rgba(0, 0, 0, 0.45),
     rgba(0, 0, 0, 0.15)
   );
   backdrop-filter: blur(6px);
-  transition: transform 0.35s ease, background 0.3s ease;
-  transform: translateY(0);
-  will-change: transform;
 }
-.site-header.nav-open {
-  transform: translateY(0) !important;
-}
-.site-header.on-hero {
-  background: transparent;
-}
+
+/* ================= TOP BAR ================= */
 
 .top-bar {
-  width: 100%;
-  max-height: 160px;
-  margin: 0 auto;
   padding: 10px 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+  text-align: center;
   color: #ddd;
-  transition: opacity 0.3s ease, transform 0.3s ease, height 0.3s ease,
-    padding 0.3s ease;
-  will-change: opacity, transform, height, padding;
-  max-width: none;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.contact-info {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
-  justify-content: center;
-  font-size: 14px;
-  font-family: vars.$font-title;
-}
-.contact-info i {
-  color: vars.$color-highlight;
 }
 
 .lang-switch a {
   color: vars.$color-white;
-  text-decoration: none;
   font-size: 14px;
-  font-family: vars.$font-title;
+  text-decoration: none;
 }
-.lang-switch a:hover,
-.lang-switch a.active {
+
+.lang-switch a.active,
+.lang-switch a:hover {
   color: vars.$color-highlight;
   font-weight: 700;
 }
 
-.site-header.is-scrolled .top-bar {
-  transform: translateY(-100%);
-  opacity: 0;
-  pointer-events: none;
-}
+/* ================= NAV ================= */
 
-.nav-bar {
-  width: 100%;
-  background-color: transparent;
-}
-
-.nav-container {
-  margin: 0 auto;
-  padding: 12px 16px;
+.header-nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
-  max-width: none;
+  padding: 12px 16px;
 }
 
 .brand {
@@ -96,128 +57,96 @@
   line-height: 1;
 }
 
+
+/* Burger */
+
 .burger-menu {
-  display: inline-block;
   background: none;
   border: none;
-  color: vars.$color-white;
   font-size: 26px;
-  margin-right: 8px;
+  color: vars.$color-white;
   cursor: pointer;
 }
-.site-nav {
-  width: 100%;
-}
+
+/* Nav */
+
 .site-nav ul {
   display: none;
   flex-direction: column;
   gap: 12px;
   list-style: none;
-  margin: 15px 0 0;
+  margin: 16px 0 0;
   padding: 0;
-  font-family: "Gill Sans", sans-serif;
-  font-size: 16px;
 }
+
 .site-nav a {
   color: vars.$color-white;
   text-decoration: none;
-  transition: color 0.3s;
+  font-size: 16px;
 }
-.site-nav a:hover,
-.site-nav a.active {
+
+.site-nav a:hover {
   color: vars.$color-highlight;
 }
 
-.nav-open .site-nav ul {
+/* Mobile open */
+
+.site-header.nav-open .site-nav ul {
   display: flex;
 }
 
-/* ——— Small tablets (≥ 576px) ——— */
-@media (min-width: vars.$bp-sm) {
-  .top-bar {
-    flex-direction: row;
-    padding: 8px 24px;
-    max-height: 60px;
-  }
+/* ================= DESKTOP ================= */
 
-  .contact-info {
-    justify-content: flex-start;
-    gap: 20px;
-  }
-
-  .lang-switch {
-    margin-left: auto;
-  }
-}
-
-/* ——— Tablets & Small Desktop (≥ 768px) ——— */
 @media (min-width: vars.$bp-md) {
-  .nav-container {
-    max-width: vars.$container-max;
-    padding: 16px 24px;
-    gap: 32px;
-  }
-
-  /* Hide burger menu on desktop */
   .burger-menu {
     display: none;
-  }
-
-  /* Desktop nav layout */
-  .site-nav {
-    width: auto;
-    flex: 1;
   }
 
   .site-nav ul {
     display: flex !important;
     flex-direction: row;
-    align-items: center;
-    justify-content: center;
     gap: 24px;
     margin: 0;
   }
 
-  .site-nav ul li {
-    padding: 0;
+  .header-nav {
+    max-width: vars.$container-max;
+    margin: 0 auto;
+    padding: 16px 24px;
   }
-
-  /* brand become left aligned */
+  
   .brand {
     display: inline-block;
-    font-size: 38px;
-    margin-right: 32px;
+    font-size: 42px;
   }
-
-  /* Reserve button (if exists) stays at far right */
   .btn-cta {
-    display: inline-block;
-    margin-left: 0;
     font-size: 16px;
     padding: 10px 18px;
   }
-  .top-bar {
-    position: absolute;
-    top: 8px;
-    right: 24px;
-    padding: 0;
-    height: auto;
-    background: transparent;
-  }
 }
 
-/* ——— Large Desktop (≥ 1024px) ——— */
-@media (min-width: vars.$bp-lg) {
-  .nav-container {
-    padding: 20px 0;
-  }
+/* ================= ANCHOR OFFSET ================= */
 
-  .brand {
-    font-size: 42px;
-  }
+#top,
+#menu,
+#tarifs,
+#infos {
+  scroll-margin-top: 120px;
+}
 
-  .site-nav ul {
-    gap: 32px;
-    font-size: 18px;
-  }
+/* ===============================
+   HEADER HIDE ON SCROLL (ADD ONLY)
+   =============================== */
+
+.site-header.is-hidden {
+  transform: translateY(-100%);
+}
+
+
+/* ===============================
+   TEMP: HIDE TOP BAR (LANG NOT READY)
+   =============================== */
+
+.top-bar {
+  display: none;
 }

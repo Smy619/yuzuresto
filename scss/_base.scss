@@ -6,13 +6,21 @@
   box-sizing: border-box;
 }
 
-/* ===== Global styles ===== */
-html,
+/* ===== Global styles (FIXED) ===== */
+
+html {
+  min-height: 100%;
+  height: auto;
+  overflow-y: auto;   /* 纵向滚动只交给 html */
+}
+
 body {
-  height: 100%;
+  min-height: 100%;
   font-family: vars.$font-body;
   color: vars.$color-white;
   background-color: vars.$color-dark;
-  overflow-x: hidden;
+
+  overflow-x: hidden; /* ⚠️ 只在 body 锁横向 */
 }
+
 

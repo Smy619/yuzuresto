@@ -99,7 +99,8 @@
   </head>
 
   <body class="page-bg">
-    <header class="site-header">
+    <header class="site-header" id="top">
+      <!-- Top bar -->
       <div class="top-bar">
         <div class="lang-switch">
           <a href="#" class="lang-btn">FR</a> /
@@ -107,24 +108,24 @@
         </div>
       </div>
 
-      <div class="nav-bar">
-        <div class="nav-container">
-          <button class="burger-menu" id="burger-toggle">
-            <i class="fa-solid fa-bars"></i>
-          </button>
+      <!-- Navigation -->
+      <div class="header-nav">
+        <button class="burger-menu" id="burger-toggle" aria-label="Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
 
-          <a href="index.html" class="brand">YUZU</a>
-          <nav class="site-nav" id="mobile-nav">
-            <ul>
-              <li><a href="index.html" class="nav-link">Accueil</a></li>
-              <li><a href="#menu" class="nav-link">Menu</a></li>
-              <li><a href="#tarifs" class="nav-link">Tarifs</a></li>
-              <li><a href="#infos" class="nav-link">Infos pratiques</a></li>
-            </ul>
-          </nav>
-          <!-- Appel à l’action (droite) -->
-          <a class="btn-cta" href="tel:+33228973936">Réserver</a>
-        </div>
+        <a href="#top" class="brand">YUZU</a>
+
+        <nav class="site-nav" id="mobile-nav">
+          <ul>
+            <li><a href="#top">Accueil</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#tarifs">Tarifs</a></li>
+            <li><a href="#infos">Infos pratiques</a></li>
+          </ul>
+        </nav>
+
+        <a class="btn-cta" href="tel:+33228973936">Réserver</a>
       </div>
     </header>
     <!-- Hero section -->
@@ -144,8 +145,8 @@
       <div class="hero-content">
         <div class="hero-text">
           <div class="hero-brand">
-          <span class="hero-kicker">Welcome to</span>
-          <span class="hero-name">YUZU</span>
+            <span class="hero-kicker">Welcome to</span>
+            <span class="hero-name">YUZU</span>
           </div>
           <h1 class="hero-title">Restaurant à volonté à La Roche-sur-Yon</h1>
 
@@ -174,14 +175,14 @@
       </div>
     </section>
 
-    <main id="top">
+    <main>
       <!--===introduction==--->
       <section id="about" class="about">
         <div class="about_overlay"></div>
         <!--colonne à gauche-->
         <div class="about-container">
           <h2 class="about_title">
-            Decouvrez
+            Découvrez
             <span class="gold">Yuzu</span>
           </h2>
           <p class="about_lead">
@@ -265,6 +266,83 @@
                 Enfant (-1.1m) <span class="free">Gratuit</span>
               </h3>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Section Menu ===== -->
+      <section id="menu" class="menu-visual">
+        <div class="container">
+          <div class="menu-header">
+            <span class="menu-label">MENU</span>
+            <h2 class="menu-title">Ce que comprend chaque formule</h2>
+          </div>
+
+          <!-- FORMULE TABS -->
+          <div class="menu-tabs">
+            <button class="menu-tab active" data-formule="f199">
+              Formule 19,90 €
+            </button>
+            <button class="menu-tab" data-formule="f299">
+              Formule 29,90 €
+            </button>
+            <button class="menu-tab" data-formule="f329">
+              Formule 32,90 €
+            </button>
+          </div>
+
+          <!-- FORMULE 19.90 -->
+          <div class="menu-grid active" data-formule="f199">
+            <article class="menu-item">
+              <img src="./images/menu/sushi.jpg" alt="Sushi" />
+              <h3>Sushi</h3>
+            </article>
+
+            <article class="menu-item">
+              <img src="./images/menu/maki.jpg" alt="Maki" />
+              <h3>Maki</h3>
+            </article>
+
+            <article class="menu-item">
+              <img src="./images/menu/gyoza.jpg" alt="Gyoza" />
+              <h3>Gyoza</h3>
+            </article>
+          </div>
+
+          <!-- FORMULE 29.90 -->
+          <div class="menu-grid" data-formule="f299">
+            <article class="menu-item">
+              <img src="./images/menu/tempura.jpg" alt="Tempura" />
+              <h3>Tempura</h3>
+            </article>
+
+            <article class="menu-item">
+              <img src="./images/menu/yakitori.jpg" alt="Yakitori" />
+              <h3>Yakitori</h3>
+            </article>
+
+            <article class="menu-item">
+              <img src="./images/menu/plat-chaud.jpg" alt="Plats chauds" />
+              <h3>Plats chauds</h3>
+            </article>
+          </div>
+
+          <!-- FORMULE 32.90 -->
+          <div class="menu-grid" data-formule="f329">
+            <article class="menu-item">
+              <img src="./images/menu/sashimi.jpg" alt="Sashimi" />
+              <h3>Sashimi</h3>
+            </article>
+
+            <article class="menu-item">
+              <img src="./images/menu/grillade.jpg" alt="Grillades" />
+              <h3>Grillades</h3>
+            </article>
+
+            <article class="menu-item">
+              <img src="./images/menu/dessert.jpg" alt="Dessert" />
+              <h3>Desserts</h3>
+            </article>
           </div>
         </div>
       </section>
@@ -513,7 +591,7 @@
       </section>-->
 
       <!------======Info=======------>
-      <section id="info" class="info-pratique">
+      <section id="infos" class="info-pratique">
         <div class="container">
           <div class="section-header">
             <span class="section-label">CONTACT</span>
@@ -632,7 +710,7 @@
           <span>Tous Droits Réservés.</span>
           <span>
             Conçu et développé par
-            <a href="solenesun.com">Solene SUN</a>
+            <a href="solenesun.com">Solène Dev Studio</a>
           </span>
         </p>
       </div>
