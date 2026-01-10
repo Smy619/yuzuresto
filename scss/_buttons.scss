@@ -1,58 +1,68 @@
 @use "variables" as vars;
 
-.btn-hero{
-  display:flex;
-  flex-direction: row;
-  gap:20px;
-}
-.btn,
-.btn-outline{
-  display: inline-block;
-  padding: 8px 10px;
-  border-radius:30px;
-  background: transparent;
-  color: vars.$color-white;
-  border: 2px solid vars.$color-highlight;
-  text-decoration: none;
-  font-weight: bold;
-  transition: all 0.3s ease;
-  cursor: pointer;
+/* =================================================
+   BUTTON SYSTEM — Base + Variants
+   (Design-system friendly / React mindset)
+================================================= */
+
+/* =========================
+   Base Button (唯一骨架)
+========================= */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  padding: 8px 14px;
+  min-height: 36px;
+
+  font-family: inherit;
   font-size: 13px;
-  text-align: center;
-}
+  font-weight: 600;
 
-.about_btn,
-.btn-gold,
-.btn-cta {
-  display: inline-block;
-  padding: 12px 24px;
-  border-radius: 17px;
   background: transparent;
   color: vars.$color-white;
-  border: 2px solid vars.$color-highlight;
-  text-decoration: none;
-  font-weight: bold;
-  transition: all 0.3s ease;
+  border: 2px solid rgba(vars.$color-highlight, 0.7);
+  border-radius: 6px;
+
   cursor: pointer;
+  white-space: nowrap;
+  text-decoration: none;
+  user-select: none;
+
+  transition:
+    color 0.25s ease,
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.2s ease;
+
+  &:hover {
+    color: vars.$color-highlight;
+    border-color: vars.$color-highlight;
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
 }
 
-/* ===== Hover effect (shared) ===== */
-.btn:hover,
-.btn-outline:hover,
-.about_btn:hover {
-  background: vars.$color-highlight;
-  color: vars.$color-white;
-}
+/* =========================
+   CTA Variant (Hero / Header)
+========================= */
 
-/* ===== CTA button (header area) ===== */
-.btn-cta {
+.btn--cta {
   padding: 8px 25px;
-  border-radius: 20px;
-  box-shadow: 0 6px 22px rgba(vars.$color-gold, 0.35);
-  color: vars.$color-gold;
-  border: 2px solid rgba(184, 134, 11, 0.7);
+  min-height: 40px;
+
   font-weight: 800;
-  transition: background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+  border-radius: 20px;
+
+  color: vars.$color-gold;
+  border-color: rgba(184, 134, 11, 0.7);
+  box-shadow: 0 6px 22px rgba(vars.$color-gold, 0.35);
 
   &:hover {
     background-color: vars.$color-highlight;
@@ -61,21 +71,70 @@
   }
 }
 
-/* ===== Gold pill button (form usage) ===== */
-.btn-gold {
-  display: inline-block;
+/* =========================
+   Gold Variant (Form / Emphasis)
+========================= */
+
+.btn--gold {
   padding: 12px 20px;
-  border-radius: 999px; /* pill shape */
-  background: transparent;
+  border-radius: 999px;
+
+  border-color: rgba(vars.$color-gold, 0.9);
   color: vars.$color-white;
-  border: 2px solid rgba(vars.$color-gold, 0.9);
-  cursor: pointer;
-  transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
-  margin-top: 30px;
 
   &:hover {
     background: rgba(vars.$color-gold, 0.9);
     color: vars.$color-dark;
-    transform: translateY(-1px); /* subtle hover lift */
+    transform: translateY(-1px);
   }
+}
+
+/* =========================
+   Ghost / Outline Variant
+========================= */
+
+.btn--ghost {
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #aaa;
+
+  &:hover {
+    border-color: vars.$color-highlight;
+    color: vars.$color-highlight;
+  }
+}
+
+/* =========================
+   Size Variants (optional)
+========================= */
+
+.btn--sm {
+  padding: 6px 10px;
+  font-size: 12px;
+  min-height: 30px;
+}
+
+.btn--lg {
+  padding: 12px 28px;
+  font-size: 15px;
+  min-height: 44px;
+}
+
+/* =========================
+   Contextual Usage Helpers
+   (no visual logic here)
+========================= */
+
+.btn-group {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+/* =========================
+   Accessibility helpers
+========================= */
+
+.btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(vars.$color-highlight, 0.4);
 }

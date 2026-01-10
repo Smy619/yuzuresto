@@ -6,7 +6,7 @@ import { burger } from "./burger.js";
 import { lightbox } from "./lightbox.js";
 import { whyus } from "./whyus.js";
 import { formuleTabs } from "./formuleTabs.js";
-
+import { galleryFilter } from "./galleryFilter.js";
 
 
 
@@ -27,6 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
   safe(dots, "dots");
   safe(whyus, "whyus");
   safe(formuleTabs, "formuleTabs");
+  safe(galleryFilter, "galleryFilter");
 
   const video = document.querySelector(".hero-bg-video");
   if (!video) return;

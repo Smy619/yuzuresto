@@ -573,7 +573,12 @@ h3 {
    Menu Section (mobile first)
 ========================= */
 .menu-section {
-  padding: 80px 16px;
+  padding: 56px 16px;
+}
+
+.menu-content-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 /* =========================
@@ -581,9 +586,12 @@ h3 {
 ========================= */
 .formule-tabs {
   display: flex;
-  gap: 10px;
+  gap: 12px;
+  flex-direction: column;
   margin-bottom: 28px;
+  justify-content: flex-start;
   overflow-x: auto;
+  padding-bottom: 4px;
 }
 .formule-tabs .formule-tab {
   flex-shrink: 0;
@@ -593,7 +601,7 @@ h3 {
   padding: 8px 14px;
   cursor: pointer;
   border-radius: 4px;
-  font-size: 14px;
+  font-size: 13px;
   white-space: nowrap;
   transition: color 0.2s ease, border-color 0.2s ease;
 }
@@ -611,6 +619,7 @@ h3 {
 .formule-panel.active {
   display: block;
   animation: fadeUp 0.35s ease;
+  justify-content: center;
 }
 
 @keyframes fadeUp {
@@ -713,6 +722,12 @@ h3 {
   .menu-section {
     padding: 100px 0;
   }
+  .formule-tabs {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 30px;
+  }
   .formule-title {
     font-size: 18px;
     margin-bottom: 24px;
@@ -770,11 +785,6 @@ h3 {
 /* =========================
    Container safety
 ========================= */
-.menu-section .container {
-  max-width: 900px;
-  margin: 0 auto;
-}
-
 /* =========================
    Tabs scroll polish
 ========================= */
@@ -828,6 +838,7 @@ h3 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 12px;
+  grid-auto-flow: dense;
 }
 
 .gallery-grid img {
@@ -844,11 +855,61 @@ h3 {
   box-shadow: 0 0 18px rgba(0, 0, 0, 0.4);
 }
 
+.gallery-item {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.gallery-item.is-hidden {
+  opacity: 0;
+  transform: scale(0.96);
+  pointer-events: none;
+  display: none;
+}
+
+/* =========================
+   Gallery Filters (tabs style)
+========================= */
+.gallery-filters {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 12px;
+  margin: 24px 0 36px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.gallery-filters .gallery-filter {
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #fff;
+  padding: 8px 14px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 4px;
+  white-space: nowrap;
+  transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+.gallery-filters .gallery-filter:hover {
+  border-color: rgba(212, 175, 55, 0.6);
+}
+.gallery-filters .gallery-filter.active {
+  color: #cda349;
+  border-color: #cda349;
+}
+.gallery-filters::-webkit-scrollbar {
+  display: none;
+}
+
 /* Tablet */
 @media (min-width: 768px) {
   .gallery-grid {
     grid-template-columns: repeat(3, 1fr);
     gap: 16px;
+  }
+  .gallery-filters {
+    flex-direction: row;
+    justify-content: center;
   }
 }
 /* Desktop */
@@ -859,6 +920,10 @@ h3 {
   }
   .gallery-title {
     font-size: 34px;
+  }
+  .gallery-filters {
+    flex-direction: row;
+    justify-content: center;
   }
 }
 /* ================================
@@ -1026,83 +1091,117 @@ h3 {
     gap: 32px;
   }
 }
-.btn-hero {
-  display: flex;
-  flex-direction: row;
-  gap: 20px;
-}
-
-.btn,
-.btn-outline {
-  display: inline-block;
-  padding: 8px 10px;
-  border-radius: 30px;
-  background: transparent;
-  color: #fff;
-  border: 2px solid rgba(212, 175, 55, 0.7);
-  text-decoration: none;
-  font-weight: bold;
-  transition: all 0.3s ease;
-  cursor: pointer;
+/* =================================================
+   BUTTON SYSTEM — Base + Variants
+   (Design-system friendly / React mindset)
+================================================= */
+/* =========================
+   Base Button (唯一骨架)
+========================= */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 14px;
+  min-height: 36px;
+  font-family: inherit;
   font-size: 13px;
-  text-align: center;
-}
-
-.about_btn,
-.btn-gold,
-.btn-cta {
-  display: inline-block;
-  padding: 12px 24px;
-  border-radius: 17px;
+  font-weight: 600;
   background: transparent;
   color: #fff;
   border: 2px solid rgba(212, 175, 55, 0.7);
-  text-decoration: none;
-  font-weight: bold;
-  transition: all 0.3s ease;
+  border-radius: 6px;
   cursor: pointer;
+  white-space: nowrap;
+  text-decoration: none;
+  user-select: none;
+  transition: color 0.25s ease, background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
+}
+.btn:hover {
+  color: rgba(212, 175, 55, 0.7);
+  border-color: rgba(212, 175, 55, 0.7);
+}
+.btn:active {
+  transform: translateY(1px);
 }
 
-/* ===== Hover effect (shared) ===== */
-.btn:hover,
-.btn-outline:hover,
-.about_btn:hover {
-  background: rgba(212, 175, 55, 0.7);
-  color: #fff;
-}
-
-/* ===== CTA button (header area) ===== */
-.btn-cta {
+/* =========================
+   CTA Variant (Hero / Header)
+========================= */
+.btn--cta {
   padding: 8px 25px;
-  border-radius: 20px;
-  box-shadow: 0 6px 22px rgba(205, 163, 73, 0.35);
-  color: #cda349;
-  border: 2px solid rgba(184, 134, 11, 0.7);
+  min-height: 40px;
   font-weight: 800;
-  transition: background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+  border-radius: 20px;
+  color: #cda349;
+  border-color: rgba(184, 134, 11, 0.7);
+  box-shadow: 0 6px 22px rgba(205, 163, 73, 0.35);
 }
-.btn-cta:hover {
+.btn--cta:hover {
   background-color: rgba(212, 175, 55, 0.7);
   color: #000;
   box-shadow: 0 6px 22px rgba(205, 163, 73, 0.35);
 }
 
-/* ===== Gold pill button (form usage) ===== */
-.btn-gold {
-  display: inline-block;
+/* =========================
+   Gold Variant (Form / Emphasis)
+========================= */
+.btn--gold {
   padding: 12px 20px;
-  border-radius: 999px; /* pill shape */
-  background: transparent;
+  border-radius: 999px;
+  border-color: rgba(205, 163, 73, 0.9);
   color: #fff;
-  border: 2px solid rgba(205, 163, 73, 0.9);
-  cursor: pointer;
-  transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
-  margin-top: 30px;
 }
-.btn-gold:hover {
+.btn--gold:hover {
   background: rgba(205, 163, 73, 0.9);
   color: #000;
-  transform: translateY(-1px); /* subtle hover lift */
+  transform: translateY(-1px);
+}
+
+/* =========================
+   Ghost / Outline Variant
+========================= */
+.btn--ghost {
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #aaa;
+}
+.btn--ghost:hover {
+  border-color: rgba(212, 175, 55, 0.7);
+  color: rgba(212, 175, 55, 0.7);
+}
+
+/* =========================
+   Size Variants (optional)
+========================= */
+.btn--sm {
+  padding: 6px 10px;
+  font-size: 12px;
+  min-height: 30px;
+}
+
+.btn--lg {
+  padding: 12px 28px;
+  font-size: 15px;
+  min-height: 44px;
+}
+
+/* =========================
+   Contextual Usage Helpers
+   (no visual logic here)
+========================= */
+.btn-group {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+/* =========================
+   Accessibility helpers
+========================= */
+.btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.4);
 }
 
 .contact-form {
